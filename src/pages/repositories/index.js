@@ -12,6 +12,7 @@ class ListRepositories extends Component {
 
   state = {
     repositories: [],
+    loading: false,
   }
 
   handleRepositories = (responseRepositories) => {
@@ -34,20 +35,30 @@ class ListRepositories extends Component {
     console.tron.log(this.state.repositories);
   }
 
+  handlerLoading = (status) => {
+    this.setState({ loading: status });
+  }
+
   renderListItem = ({ item }) => <RepositoryItem repository={item} />
+
+  renderListRepositories = () => (
+    <FlatList
+      data={this.state.repositories}
+      keyExtractor={item => String(item.id)}
+      renderItem={this.renderListItem}
+      numColumns={2}
+      columnWrapperStyle={styles.columnContainer}
+    />
+  );
 
   render() {
     return (
       <View style={styles.container}>
-        <Header getListRepositories={this.doSearchListRepositories} />
+        <Header getListRepositories={this.doSearchListRepositories} setLoading={this.handlerLoading} />
         <Text>{this.state.repositories.id}</Text>
-        <FlatList
-          data={this.state.repositories}
-          keyExtractor={item => String(item.id)}
-          renderItem={this.renderListItem}
-          numColumns={2}
-          columnWrapperStyle={styles.columnContainer}
-        />
+        {
+          this.state.loading ? <Text>Carregando</Text> : this.renderListRepositories()
+        }
       </View>
     );
   }

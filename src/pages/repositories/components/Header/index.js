@@ -19,16 +19,22 @@ class Header extends Component {
     const { search } = this.state;
 
     if (search.length === 0) return;
-
+    this.handlerLoadings(true);
     this.setState({ loading: true });
     try {
       const listRepositories = await this.searchRepository(search);
       getListRepositories(listRepositories);
-      this.setState({ loading: false });
+      this.handlerLoadings(false);
     } catch (err) {
-      this.setState({ loading: false });
+      this.handlerLoadings(false);
     }
   };
+
+  handlerLoadings = (status) => {
+    const { setLoading } = this.props;
+    this.setState({ loading: status });
+    setLoading(status);
+  }
 
   renderSearchButton = () => (
     <TouchableOpacity
