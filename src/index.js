@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import 'config/DevToolsConfig';
 import 'config/ReactotronConfig';
 
-import ListRepositories from 'pages/list-repositories';
+import createNavigator from 'routes';
 
-const App = () => (
-  <ListRepositories />
-);
+class App extends Component {
+  render() {
+    const Routes = createNavigator();
+    return <Routes />;
+  }
+}
 
 export default App;

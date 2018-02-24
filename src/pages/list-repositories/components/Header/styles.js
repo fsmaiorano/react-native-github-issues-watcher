@@ -7,12 +7,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: colors.white,
-    padding: metrics.basePaddings,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   input: {
+    width: 300,
     backgroundColor: colors.gray,
     borderRadius: metrics.baseRadius,
     paddingHorizontal: metrics.basePadding,
+  },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 });
 

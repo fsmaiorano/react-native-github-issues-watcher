@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import styles from './styles';
 import Header from './components/Header';
 
 const ListRepositories = () => (
-  <View>
+  <View style={styles.container}>
     <Header />
     <Text>List Repositories</Text>
   </View>
