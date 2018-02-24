@@ -1,11 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
 
 import 'config/DevToolsConfig';
 import 'config/ReactotronConfig';
 
+import ListRepositories from 'pages/list-repositories';
+
 const App = () => (
-  <View />
+  <ListRepositories />
 );
 
 export default App;
