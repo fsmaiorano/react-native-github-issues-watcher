@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import styles from './styles';
 import Header from './components/Header';
 
-const ListRepositories = () => (
-  <View style={styles.container}>
-    <Header />
-    <Text>List Repositories</Text>
-  </View>
-);
+class ListRepositories extends Component {
+  static navigationOptions = {
+    header: null,
+  };
 
-ListRepositories.navigationOptions = {
-  header: null,
-};
+  doSearchListRepositories = (repositories) => {
+    if (repositories.status !== 200) {
+      return;
+    }
+
+    console.tron.log(repositories);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Header getListRepositories={this.doSearchListRepositories} />
+        <Text>List Repositories</Text>
+      </View>
+    );
+  }
+}
 
 export default ListRepositories;
