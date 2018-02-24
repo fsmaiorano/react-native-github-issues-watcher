@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import api from 'services/api';
 import styles from './styles';
 
@@ -24,10 +24,19 @@ class Header extends Component {
     try {
       const listRepositories = await this.searchRepository(search);
       getListRepositories(listRepositories);
+      this.setState({ loading: false });
     } catch (err) {
       this.setState({ loading: false });
     }
   };
+
+  renderSearchButton = () => (
+    <TouchableOpacity
+      onPress={this.doSearch}
+    >
+      <Text style={styles.button}>Pesquisar</Text>
+    </TouchableOpacity>
+  )
 
   render() {
     return (
@@ -41,11 +50,11 @@ class Header extends Component {
           value={this.state.search}
           onChangeText={search => this.setState({ search })}
         />
-        <TouchableOpacity
-          onPress={this.doSearch}
-        >
-          <Text style={styles.button}>Pesquisar</Text>
-        </TouchableOpacity>
+
+        {
+         this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderSearchButton()
+        }
+
       </View>
     );
   }

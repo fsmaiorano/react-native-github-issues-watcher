@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
   },
+  loading: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
 });
 
 export default styles;
