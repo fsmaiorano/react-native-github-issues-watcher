@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import { metrics } from 'styles';
 
 // Pages
-import ListRepositories from './pages/list-repositories';
+import ListRepositories from './pages/repositories';
 
 const createNavigator = () => StackNavigator({
   ListRepositories: { screen: ListRepositories },
