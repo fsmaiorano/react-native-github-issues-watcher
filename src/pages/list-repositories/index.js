@@ -10,4 +10,8 @@ const ListRepositories = () => (
   </View>
 );
 
+ListRepositories.navigationOptions = {
+  header: null,
+};
+
 export default ListRepositories;

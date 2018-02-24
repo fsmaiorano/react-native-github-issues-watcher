@@ -1,7 +1,19 @@
 import { StyleSheet } from 'react-native';
+import { colors, metrics } from 'styles';
 
 const styles = StyleSheet.create({
-
+  headerBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    backgroundColor: colors.white,
+    padding: metrics.basePaddings,
+  },
+  input: {
+    backgroundColor: colors.gray,
+    borderRadius: metrics.baseRadius,
+    paddingHorizontal: metrics.basePadding,
+  },
 });
 
 export default styles;
