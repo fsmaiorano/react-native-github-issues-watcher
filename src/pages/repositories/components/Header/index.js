@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
+import PropTypes from 'prop-types';
 import api from 'services/api';
 import styles from './styles';
 
 class Header extends Component {
+  static propTypes = {
+    setLoading: PropTypes.bool.isRequired,
+  }
+
   state = {
     search: 'react-navigation/react-navigation',
     loading: false,
@@ -58,7 +63,7 @@ class Header extends Component {
         />
 
         {
-         this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderSearchButton()
+      this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderSearchButton()
         }
 
       </View>
