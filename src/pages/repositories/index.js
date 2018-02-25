@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 
 import styles from './styles';
 import Header from './components/Header';
@@ -57,7 +57,7 @@ class ListRepositories extends Component {
         <Header getListRepositories={this.doSearchListRepositories} setLoading={this.handlerLoading} />
         <Text>{this.state.repositories.id}</Text>
         {
-          this.state.loading ? <Text>Carregando</Text> : this.renderListRepositories()
+          this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderListRepositories()
         }
       </View>
     );

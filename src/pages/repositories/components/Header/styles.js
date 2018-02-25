@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, metrics } from 'styles';
+import { colors, metrics, general } from 'styles';
 
 const styles = StyleSheet.create({
   headerBox: {
@@ -23,10 +23,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   loading: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 20,
+    ...general.loading,
   },
 });
 
