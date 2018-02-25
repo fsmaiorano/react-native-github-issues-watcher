@@ -13,4 +13,9 @@ export default {
     borderRadius: metrics.baseRadius,
     padding: metrics.basePadding,
   },
+  debugBorder: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: 'red',
+  },
 };

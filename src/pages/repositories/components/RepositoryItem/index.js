@@ -6,8 +6,8 @@ import styles from './styles';
 
 const RepositoryItem = ({ repository }) => (
   <View style={styles.container}>
-    <Text>{repository.id}</Text>
-    <Text>{repository.name}</Text>
+    <Text style={styles.title}>{repository.id}</Text>
+    <Text style={styles.subTitle}>{repository.name}</Text>
     <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
   </View>
 );
