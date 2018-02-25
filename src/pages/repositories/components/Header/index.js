@@ -5,7 +5,7 @@ import styles from './styles';
 
 class Header extends Component {
   state = {
-    search: 'fsmaiorano/react-native-boilerplate',
+    search: 'react-navigation/react-navigation',
     loading: false,
   };
 
