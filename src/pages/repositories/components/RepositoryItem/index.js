@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native';
 import styles from './styles';
 
 const RepositoryItem = ({ repository }) => (
-  <View>
+  <View style={styles.container}>
     <Text>{repository.id}</Text>
     <Text>{repository.name}</Text>
     <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
