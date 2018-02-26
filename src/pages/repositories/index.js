@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 import { NavigationActions } from 'react-navigation';
 
 import styles from './styles';
@@ -9,6 +10,12 @@ import RepositoryItem from './components/RepositoryItem';
 class ListRepositories extends Component {
   static navigationOptions = {
     header: null,
+  };
+
+  static propTypes = {
+    navigation: PropTypes.shape({
+      dispatch: PropTypes.func,
+    }).isRequired,
   };
 
   state = {
