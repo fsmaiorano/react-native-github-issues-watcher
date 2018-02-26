@@ -13,15 +13,19 @@ class Issues extends Component {
     },
   });
 
-
   static propTypes = {
-    repository: PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      avatar_url: PropTypes.string,
-    }).isRequired,
     navigation: PropTypes.shape({
-      state: PropTypes.shape,
+      state: PropTypes.shape({
+        params: PropTypes.shape({
+          repository: PropTypes.shape({
+            name: PropTypes.string,
+            owner: PropTypes.shape({
+              login: PropTypes.string,
+            }),
+            avatar_url: PropTypes.string,
+          }),
+        }),
+      }),
     }).isRequired,
   };
 
