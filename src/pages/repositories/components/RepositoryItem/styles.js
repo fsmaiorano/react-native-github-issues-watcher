@@ -1,37 +1,25 @@
 import { StyleSheet } from 'react-native';
 
-import { general, metrics, colors } from 'styles';
+import { general } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
     ...general.box,
-    flex: 1,
-    flexDirection: 'row',
-    maxWidth: metrics.screenWidth,
-    marginTop: metrics.baseMargin,
-    marginLeft: metrics.baseMargin,
-    marginRight: metrics.baseMargin,
-    justifyContent: 'space-between',
   },
   containerImage: {
+    ...general.containerImage,
   },
   containerText: {
-    flex: 1,
-    marginLeft: metrics.baseMargin,
+    ...general.containerText,
   },
   avatar: {
-    width: 45,
-    height: 45,
+    ...general.avatar,
   },
   title: {
-    flex: 1,
-    fontSize: 16,
-    color: colors.black,
+    ...general.title,
   },
   subTitle: {
-    flex: 1,
-    fontSize: 12,
-    color: colors.light,
+    ...general.subTitle,
   },
 });
 

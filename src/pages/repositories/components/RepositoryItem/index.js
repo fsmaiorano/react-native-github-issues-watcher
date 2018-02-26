@@ -18,9 +18,11 @@ const RepositoryItem = ({ repository }) => (
 
 RepositoryItem.propTypes = {
   repository: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    avatar_url: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    owner: PropTypes.shape({
+      login: PropTypes.string.isRequired,
+      avatar_url: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 

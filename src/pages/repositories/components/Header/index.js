@@ -6,7 +6,7 @@ import styles from './styles';
 
 class Header extends Component {
   static propTypes = {
-    setLoading: PropTypes.bool.isRequired,
+    setLoading: PropTypes.func.isRequired,
   }
 
   state = {
