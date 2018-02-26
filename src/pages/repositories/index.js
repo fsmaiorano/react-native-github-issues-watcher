@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 import styles from './styles';
 import Header from './components/Header';
@@ -39,7 +40,24 @@ class ListRepositories extends Component {
     this.setState({ loading: status });
   }
 
-  renderListItem = ({ item }) => <RepositoryItem repository={item} />
+  redirectToPage = (item) => {
+    const navigateAction = NavigationActions.navigate({
+      routeName: 'Issues',
+      params: { repository: item },
+      action: NavigationActions.navigate({ routeName: 'Issues' }),
+    });
+    this.props.navigation.dispatch(navigateAction);
+  }
+
+  renderListItem = ({ item }) => (
+    <TouchableOpacity
+      key={item.id}
+      onPress={this.redirectToPage}
+    >
+      <RepositoryItem repository={item} onClick={() => this.redirectToPage(item)} />
+    </TouchableOpacity>
+
+  )
 
   renderListRepositories = () => (
     <FlatList
