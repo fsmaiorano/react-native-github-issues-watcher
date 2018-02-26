@@ -46,7 +46,7 @@ class ListRepositories extends Component {
       data={this.state.repositories}
       keyExtractor={item => String(item.id)}
       renderItem={this.renderListItem}
-      numColumns={2}
+      numColumns={1}
       columnWrapperStyle={styles.columnContainer}
     />
   );
