@@ -10,8 +10,8 @@ const RepositoryItem = ({ repository }) => (
       <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
     </View>
     <View style={styles.containerText}>
-      <Text style={styles.title}>{repository.id}</Text>
-      <Text style={styles.subTitle}>{repository.name}</Text>
+      <Text style={styles.title}>{repository.name}</Text>
+      <Text style={styles.subTitle}>{repository.owner.login}</Text>
     </View>
   </View>
 );

@@ -59,9 +59,9 @@ class ListRepositories extends Component {
   renderListItem = ({ item }) => (
     <TouchableOpacity
       key={item.id}
-      onPress={this.redirectToPage}
+      onPress={() => this.redirectToPage(item)}
     >
-      <RepositoryItem repository={item} onClick={() => this.redirectToPage(item)} />
+      <RepositoryItem repository={item} />
     </TouchableOpacity>
 
   )
