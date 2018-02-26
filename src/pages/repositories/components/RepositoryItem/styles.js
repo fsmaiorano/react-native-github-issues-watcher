@@ -1,34 +1,37 @@
 import { StyleSheet } from 'react-native';
 
-import { general, metrics } from 'styles';
+import { general, metrics, colors } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
-    ...general.debugBorder,
     ...general.box,
     flex: 1,
-    flexDirection: 'column',
-    marginTop: metrics.baseMargin,
+    flexDirection: 'row',
     maxWidth: metrics.screenWidth,
-    marginLeft: 30,
-    marginRight: 30,
+    marginTop: metrics.baseMargin,
+    marginLeft: metrics.baseMargin,
+    marginRight: metrics.baseMargin,
+    justifyContent: 'space-between',
+  },
+  containerImage: {
+  },
+  containerText: {
+    flex: 1,
+    marginLeft: metrics.baseMargin,
   },
   avatar: {
-    ...general.debugBorder,
-    flex: 1,
     width: 45,
     height: 45,
-    alignItems: 'flex-start',
   },
   title: {
-    flex: 3,
-    ...general.debugBorder,
-    alignItems: 'flex-end',
+    flex: 1,
+    fontSize: 16,
+    color: colors.black,
   },
   subTitle: {
-    flex: 3,
-    ...general.debugBorder,
-    alignItems: 'flex-end',
+    flex: 1,
+    fontSize: 12,
+    color: colors.light,
   },
 });
 
