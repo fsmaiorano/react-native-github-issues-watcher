@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
+import { View, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import api from 'services/api';
 import styles from './styles';
@@ -33,7 +33,6 @@ class Issues extends Component {
 
   state = {
     issues: [],
-    repository: {},
     loading: true,
   };
 
@@ -41,11 +40,6 @@ class Issues extends Component {
     this.getIssues();
     this.getRepository();
   };
-
-  getRepository = () => {
-    const { repository } = this.props.navigation.state.params;
-    this.setState({ repository });
-  }
 
   getIssues = async () => {
     const { repository } = this.props.navigation.state.params;
