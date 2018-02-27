@@ -40,7 +40,6 @@ class ListRepositories extends Component {
 
     const list = this.handleRepositories(responseRepositories);
     this.setState({ repositories: list });
-    console.tron.log(this.state.repositories);
   }
 
   handlerLoading = (status) => {

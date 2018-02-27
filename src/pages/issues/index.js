@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import api from 'services/api';
 import styles from './styles';
@@ -31,12 +31,19 @@ class Issues extends Component {
 
   state = {
     issues: [],
+    repository: {},
+    loading: true,
   };
 
   componentDidMount = async () => {
+    const { repository } = this.props.navigation.state.params;
     const getIssues = this.getIssues();
-    console.tron.log(getIssues);
-    this.setState({ issues: getIssues });
+    this.setState({
+      loading: false,
+      repository,
+      issues: [...getIssues],
+    });
+    console.tron.log(this.state);
   };
 
   getIssues = async () => {
@@ -45,18 +52,36 @@ class Issues extends Component {
     return issues;
   }
 
-  render() {
-    const { repository } = this.props.navigation.state.params;
-    console.tron.log(repository);
+  renderIssue = () => {
+    const { repository, issues } = this.state;
+    console.tron.log(issues);
     return (
-      <View style={styles.container}>
-        <View style={styles.containerImage}>
-          <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
-        </View>
-        <View style={styles.containerText}>
-          <Text style={styles.title}>{repository.name}</Text>
-          <Text style={styles.subTitle}>{repository.owner.login}</Text>
-        </View>
+      <View>
+        {
+          issues && issues.map(issue => (
+            <View>
+              <View style={styles.container}>
+                <View style={styles.containerImage}>
+                  <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
+                </View>
+              </View>
+              <View style={styles.containerText}>
+                <Text style={styles.title}>{issue.title}</Text>
+                <Text style={styles.subTitle}>{issue.user.login}</Text>
+              </View>
+            </View>
+          ))
+        }
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <View>
+        {
+        this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderIssue()
+      }
       </View>
     );
   }
