@@ -36,25 +36,25 @@ class Issues extends Component {
   };
 
   componentDidMount = async () => {
-    const { repository } = this.props.navigation.state.params;
-    const getIssues = this.getIssues();
-    this.setState({
-      loading: false,
-      repository,
-      issues: [...getIssues],
-    });
-    console.tron.log(this.state);
+    this.getIssues();
+    this.getRepository();
   };
+
+  getRepository = () => {
+    const { repository } = this.props.navigation.state.params;
+    this.setState({ repository });
+  }
 
   getIssues = async () => {
     const { repository } = this.props.navigation.state.params;
     const issues = await api.get(`/repos/${repository.owner.login}/${repository.name}/issues`);
-    return issues;
+    this.setState({ issues: issues.data, loading: false });
   }
 
   renderIssue = () => {
     const { repository, issues } = this.state;
     console.tron.log(issues);
+    console.tron.log(repository);
     return (
       <View>
         {
