@@ -9,7 +9,6 @@ export default {
     paddingBottom: 20,
   },
   box: {
-    flex: 1,
     flexDirection: 'row',
     maxWidth: metrics.screenWidth,
     marginTop: metrics.baseMargin,
