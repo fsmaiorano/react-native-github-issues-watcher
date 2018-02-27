@@ -38,7 +38,6 @@ class Issues extends Component {
 
   componentDidMount = async () => {
     this.getIssues();
-    this.getRepository();
   };
 
   getIssues = async () => {
