@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ActivityIndicator } from 'react-native';
+import { View, Text, Image, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import api from 'services/api';
 import styles from './styles';
+
+import IssueItem from './components/IssueItem';
 
 class Issues extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -51,30 +53,25 @@ class Issues extends Component {
     this.setState({ issues: issues.data, loading: false });
   }
 
-  renderIssue = () => {
-    const { repository, issues } = this.state;
-    console.tron.log(issues);
-    console.tron.log(repository);
-    return (
-      <View>
-        {
-          issues && issues.map(issue => (
-            <View key={issue.id}>
-              <View style={styles.container}>
-                <View style={styles.containerImage}>
-                  <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
-                </View>
-              </View>
-              <View style={styles.containerText}>
-                <Text style={styles.title}>{issue.title}</Text>
-                <Text style={styles.subTitle}>{issue.user.login}</Text>
-              </View>
-            </View>
-          ))
-        }
-      </View>
-    );
-  }
+  renderListItem = ({ item }) => (
+    <TouchableOpacity
+      key={item.id}
+      onPress={() => this.redirectToPage(item)}
+    >
+      <IssueItem issue={item} />
+    </TouchableOpacity>
+
+  )
+
+  renderIssue = () => (
+    <FlatList
+      data={this.state.issues}
+      keyExtractor={item => String(item.id)}
+      renderItem={this.renderListItem}
+      numColumns={1}
+      columnWrapperStyle={styles.columnContainer}
+    />
+  )
 
   render() {
     return (
