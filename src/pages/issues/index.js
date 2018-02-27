@@ -69,7 +69,6 @@ class Issues extends Component {
       keyExtractor={item => String(item.id)}
       renderItem={this.renderListItem}
       numColumns={1}
-      columnWrapperStyle={styles.columnContainer}
     />
   )
 
