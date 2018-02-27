@@ -59,7 +59,7 @@ class Issues extends Component {
       <View>
         {
           issues && issues.map(issue => (
-            <View>
+            <View key={issue.id}>
               <View style={styles.container}>
                 <View style={styles.containerImage}>
                   <Image style={styles.avatar} source={{ uri: repository.owner.avatar_url }} />
