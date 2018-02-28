@@ -57,25 +57,39 @@ class Issues extends Component {
   )
 
   renderFilters = () => (
-    <View>
-      <Button
-        transparent
-        style={styles.nextContainer}
-        title="oi"
-      />
+    <View style={styles.filters}>
+      <TouchableOpacity style={styles.filter}>
+        <Text>{'Todas'} </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.filter}>
+        <Text>{'Abertas'} </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.filter}>
+        <Text>{'Fechadas'} </Text>
+      </TouchableOpacity>
     </View>
+  )
+
+  renderList = () => (
+    <FlatList
+      data={this.state.issues}
+      keyExtractor={item => String(item.id)}
+      renderItem={this.renderListItem}
+      numColumns={1}
+    />
   )
 
   renderIssue = () => (
     <View>
-
+      {
+        this.renderFilters()
+      }
       <View>
-        <FlatList
-          data={this.state.issues}
-          keyExtractor={item => String(item.id)}
-          renderItem={this.renderListItem}
-          numColumns={1}
-        />
+        {
+          this.renderList()
+        }
       </View>
     </View>
   )
