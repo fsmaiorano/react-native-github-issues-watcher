@@ -27,6 +27,12 @@ const styles = StyleSheet.create({
   filterText: {
     color: colors.darkGray,
   },
+  activatedFilter: {
+    fontWeight: 'bold',
+  },
+  disabledFilter: {
+    opacity: 0.5,
+  },
 });
 
 export default styles;

@@ -68,21 +68,21 @@ class Issues extends Component {
     >
       <IssueItem issue={item} />
     </TouchableOpacity>
-
   )
+
 
   renderFilters = () => (
     <View style={styles.filters}>
       <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('Todas')}>
-        <Text style={styles.filterText}>{'Todas'} </Text>
+        <Text style={[styles.filterText, this.state.filter === 'Todas' ? styles.activatedFilter : styles.disabledFilter]}>{'Todas'} </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('Abertas')}>
-        <Text style={styles.filterText}>{'Abertas'} </Text>
+        <Text style={[styles.filterText, this.state.filter === 'Abertas' ? styles.activatedFilter : styles.disabledFilter]}>{'Abertas'} </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('Fechadas')}>
-        <Text style={styles.filterText}>{'Fechadas'} </Text>
+        <Text style={[styles.filterText, this.state.filter === 'Fechadas' ? styles.activatedFilter : styles.disabledFilter]}>{'Fechadas'} </Text>
       </TouchableOpacity>
     </View>
   )
