@@ -38,26 +38,29 @@ class Issues extends Component {
   };
 
   componentDidMount = async () => {
-    this.getIssues();
     this.getFilter();
+    this.getIssues();
   };
 
   getIssues = async () => {
     const { repository } = this.props.navigation.state.params;
-    const issues = await api.get(`/repos/${repository.owner.login}/${repository.name}/issues`);
+    const { filter } = this.state;
+    const issues = await api.get(`/repos/${repository.owner.login}/${repository.name}/issues?state=${filter}`);
     this.setState({ issues: issues.data, loading: false });
   }
 
   setFilter = async (filter) => {
     await AsyncStorage.setItem('@Github_Issues_Watcher:filter', filter);
     this.setState({ filter });
+    this.getIssues();
   }
 
   getFilter = async () => {
     const filter = await AsyncStorage.getItem('@Github_Issues_Watcher:filter');
-    console.tron.log(filter);
     if (filter) {
       this.setState({ filter });
+    } else {
+      this.setState({ filter: 'open' });
     }
   }
 
@@ -73,16 +76,16 @@ class Issues extends Component {
 
   renderFilters = () => (
     <View style={styles.filters}>
-      <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('Todas')}>
-        <Text style={[styles.filterText, this.state.filter === 'Todas' ? styles.activatedFilter : styles.disabledFilter]}>{'Todas'} </Text>
+      <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('all')}>
+        <Text style={[styles.filterText, this.state.filter === 'all' ? styles.activatedFilter : styles.disabledFilter]}>{'Todas'} </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('Abertas')}>
-        <Text style={[styles.filterText, this.state.filter === 'Abertas' ? styles.activatedFilter : styles.disabledFilter]}>{'Abertas'} </Text>
+      <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('open')}>
+        <Text style={[styles.filterText, this.state.filter === 'open' ? styles.activatedFilter : styles.disabledFilter]}>{'Abertas'} </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('Fechadas')}>
-        <Text style={[styles.filterText, this.state.filter === 'Fechadas' ? styles.activatedFilter : styles.disabledFilter]}>{'Fechadas'} </Text>
+      <TouchableOpacity style={styles.filter} onPress={() => this.setFilter('closed')}>
+        <Text style={[styles.filterText, this.state.filter === 'closed' ? styles.activatedFilter : styles.disabledFilter]}>{'Fechadas'} </Text>
       </TouchableOpacity>
     </View>
   )
