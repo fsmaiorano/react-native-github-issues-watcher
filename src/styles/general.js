@@ -37,7 +37,7 @@ export default {
   subTitle: {
     flex: 1,
     fontSize: 12,
-    color: colors.light,
+    color: colors.midGray,
   },
   debugBorder: {
     borderRadius: 4,

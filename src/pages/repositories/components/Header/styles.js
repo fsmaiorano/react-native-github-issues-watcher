@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: 300,
+    fontSize: 12,
     backgroundColor: colors.gray,
     borderRadius: metrics.baseRadius,
     paddingHorizontal: metrics.basePadding,

@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginLeft: metrics.baseMargin,
     marginRight: metrics.baseMargin,
+    paddingBottom: metrics.basePadding,
   },
   filter: {
     flexDirection: 'row',
