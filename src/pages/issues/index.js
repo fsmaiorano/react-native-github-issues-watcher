@@ -58,22 +58,17 @@ class Issues extends Component {
 
   renderFilters = () => (
     <View>
-      <TouchableOpacity key="todas" title="teste" />
+      <Button
+        transparent
+        style={styles.nextContainer}
+        title="oi"
+      />
     </View>
   )
 
   renderIssue = () => (
     <View>
-      <View>
-        <Button
-          transparent
-          style={styles.nextContainer}
-          title="oi"
-        >
-          <Text>NEXT</Text>
-        </Button>
 
-      </View>
       <View>
         <FlatList
           data={this.state.issues}
