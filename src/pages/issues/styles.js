@@ -19,11 +19,13 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginLeft: metrics.baseMargin,
     marginRight: metrics.baseMargin,
-    color: colors.darkGray,
   },
   filter: {
     flexDirection: 'row',
     alignItems: 'stretch',
+  },
+  filterText: {
+    color: colors.darkGray,
   },
 });
 

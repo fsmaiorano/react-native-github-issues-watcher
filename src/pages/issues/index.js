@@ -43,6 +43,7 @@ class Issues extends Component {
   getIssues = async () => {
     const { repository } = this.props.navigation.state.params;
     const issues = await api.get(`/repos/${repository.owner.login}/${repository.name}/issues`);
+    console.tron.log(issues);
     this.setState({ issues: issues.data, loading: false });
   }
 
@@ -59,15 +60,15 @@ class Issues extends Component {
   renderFilters = () => (
     <View style={styles.filters}>
       <TouchableOpacity style={styles.filter}>
-        <Text>{'Todas'} </Text>
+        <Text style={styles.filterText}>{'Todas'} </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.filter}>
-        <Text>{'Abertas'} </Text>
+        <Text style={styles.filterText}>{'Abertas'} </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.filter}>
-        <Text>{'Fechadas'} </Text>
+        <Text style={styles.filterText}>{'Fechadas'} </Text>
       </TouchableOpacity>
     </View>
   )
