@@ -51,7 +51,7 @@ class Issues extends Component {
 
   setFilter = async (filter) => {
     await AsyncStorage.setItem('@Github_Issues_Watcher:filter', filter);
-    this.setState({ filter });
+    this.setState({ filter, loading: true });
     this.getIssues();
   }
 
