@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...general.title,
+    flex: 1,
   },
   subTitle: {
     ...general.subTitle,
