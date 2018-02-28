@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Button, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import api from 'services/api';
 import styles from './styles';
@@ -56,21 +56,41 @@ class Issues extends Component {
 
   )
 
+  renderFilters = () => (
+    <View>
+      <TouchableOpacity key="todas" title="teste" />
+    </View>
+  )
+
   renderIssue = () => (
-    <FlatList
-      data={this.state.issues}
-      keyExtractor={item => String(item.id)}
-      renderItem={this.renderListItem}
-      numColumns={1}
-    />
+    <View>
+      <View>
+        <Button
+          transparent
+          style={styles.nextContainer}
+          title="oi"
+        >
+          <Text>NEXT</Text>
+        </Button>
+
+      </View>
+      <View>
+        <FlatList
+          data={this.state.issues}
+          keyExtractor={item => String(item.id)}
+          renderItem={this.renderListItem}
+          numColumns={1}
+        />
+      </View>
+    </View>
   )
 
   render() {
     return (
       <View>
         {
-        this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderIssue()
-      }
+          this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderIssue()
+        }
       </View>
     );
   }

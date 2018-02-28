@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
 import { NavigationActions } from 'react-navigation';
 
@@ -23,6 +23,13 @@ class ListRepositories extends Component {
     loading: false,
   }
 
+  componentDidMount = async () => {
+    const repositories = await AsyncStorage.getItem('@Github_Issues_Watcher:repositories');
+    if (repositories) {
+      this.setState({ repositories: JSON.parse(repositories) });
+    }
+  }
+
   handleRepositories = (responseRepositories) => {
     const { repositories } = this.state;
     const newList = repositories;
@@ -33,13 +40,19 @@ class ListRepositories extends Component {
     return newList;
   }
 
-  doSearchListRepositories = (responseRepositories) => {
+  saveRepository = async (repositories) => {
+    console.tron.log(repositories);
+    await AsyncStorage.setItem('@Github_Issues_Watcher:repositories', JSON.stringify(repositories));
+  }
+
+  doSearchListRepositories = async (responseRepositories) => {
     if (responseRepositories.status !== 200) {
       return;
     }
 
-    const list = this.handleRepositories(responseRepositories);
-    this.setState({ repositories: list });
+    const repositories = this.handleRepositories(responseRepositories);
+    await this.saveRepository(repositories);
+    this.setState({ repositories });
   }
 
   handlerLoading = (status) => {
