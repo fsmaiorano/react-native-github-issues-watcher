@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: colors.white,
-    paddingTop: 20,
+    paddingTop: 40,
     paddingBottom: 20,
   },
   input: {
@@ -17,14 +17,16 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseRadius,
     paddingHorizontal: metrics.basePadding,
   },
-  button: {
+  icon: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 20,
     paddingBottom: 20,
+    marginLeft: 20,
   },
   loading: {
     ...general.loading,
+    marginLeft: 20,
   },
 });
 

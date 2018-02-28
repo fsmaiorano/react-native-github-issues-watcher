@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
 import api from 'services/api';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
+
 
 class Header extends Component {
   static propTypes = {
@@ -45,7 +47,7 @@ class Header extends Component {
     <TouchableOpacity
       onPress={this.doSearch}
     >
-      <Text style={styles.button}>Pesquisar</Text>
+      <Icon name="plus" size={16} style={styles.icon} />
     </TouchableOpacity>
   )
 
