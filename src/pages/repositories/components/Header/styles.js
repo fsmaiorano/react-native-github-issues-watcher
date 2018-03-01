@@ -8,11 +8,12 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor: colors.white,
     paddingTop: 40,
-    paddingBottom: 20,
+    paddingBottom: 15,
   },
   input: {
     width: 300,
     fontSize: 12,
+    height: 30,
     backgroundColor: colors.gray,
     borderRadius: metrics.baseRadius,
     paddingHorizontal: metrics.basePadding,
@@ -20,8 +21,7 @@ const styles = StyleSheet.create({
   icon: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 7,
     marginLeft: 20,
   },
   loading: {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, AsyncStorage } from 'react-native';
+import { View, FlatList, ActivityIndicator, TouchableOpacity, AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
 import { NavigationActions } from 'react-navigation';
 
@@ -102,7 +102,6 @@ class ListRepositories extends Component {
           getListRepositories={this.doSearchListRepositories}
           setLoading={this.handlerLoading}
         />
-        <Text>{this.state.repositories.id}</Text>
         {
           this.state.loading ?
             <ActivityIndicator style={styles.loading} /> :
