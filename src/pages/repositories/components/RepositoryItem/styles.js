@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { general } from 'styles';
+import { general, colors } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     ...general.subTitle,
+  },
+  icon: {
+    alignSelf: 'center',
+    color: colors.midGray,
   },
 });
 

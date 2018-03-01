@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
 
@@ -13,6 +14,7 @@ const RepositoryItem = ({ repository }) => (
       <Text style={styles.title}>{repository.name}</Text>
       <Text style={styles.subTitle}>{repository.owner.login}</Text>
     </View>
+    <Icon name="angle-right" size={20} style={styles.icon} />
   </View>
 );
 

@@ -10,6 +10,7 @@ class Issues extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.repository.name}`,
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
+    headerTintColor: '#333333',
     headerStyle: {
       backgroundColor: 'white',
     },
