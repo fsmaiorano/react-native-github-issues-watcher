@@ -12,7 +12,7 @@ class Header extends Component {
   }
 
   state = {
-    search: 'react-navigation/react-navigation',
+    search: '',
     loading: false,
   };
 
