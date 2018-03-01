@@ -90,10 +90,15 @@ class ListRepositories extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header getListRepositories={this.doSearchListRepositories} setLoading={this.handlerLoading} />
+        <Header
+          getListRepositories={this.doSearchListRepositories}
+          setLoading={this.handlerLoading}
+        />
         <Text>{this.state.repositories.id}</Text>
         {
-          this.state.loading ? <ActivityIndicator style={styles.loading} /> : this.renderListRepositories()
+          this.state.loading ?
+            <ActivityIndicator style={styles.loading} /> :
+            this.renderListRepositories()
         }
       </View>
     );
