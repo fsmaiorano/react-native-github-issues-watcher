@@ -21,12 +21,18 @@ class ListRepositories extends Component {
   state = {
     repositories: [],
     loading: false,
+    refreshing: false,
   }
 
   componentDidMount = async () => {
+    await this.getRepositories();
+  }
+
+  getRepositories = async () => {
+    this.setState({ refreshing: true });
     const repositories = await AsyncStorage.getItem('@Github_Issues_Watcher:repositories');
     if (repositories) {
-      this.setState({ repositories: JSON.parse(repositories) });
+      this.setState({ repositories: JSON.parse(repositories), refreshing: false });
     }
   }
 
@@ -84,6 +90,8 @@ class ListRepositories extends Component {
       keyExtractor={item => String(item.id)}
       renderItem={this.renderListItem}
       numColumns={1}
+      refreshing={this.state.refreshing}
+      onRefresh={this.getRepositories}
     />
   );
 
