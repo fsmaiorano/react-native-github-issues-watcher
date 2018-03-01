@@ -1,6 +1,6 @@
-## React Native Boilerplate
+## React Native Github Issues Watcher
 
-A shortcut for new projects with React Native.
+A Github issues watcher for Android and iOS.
 
 for run:
 
@@ -13,5 +13,3 @@ $ react-native run-android or run-ios
 ```sh
 $ react-native start
 ```
-
- :warning: ESLint is ready for use, but is disabled. For enable, edit the archive '.eslintignore' and remove their content.
