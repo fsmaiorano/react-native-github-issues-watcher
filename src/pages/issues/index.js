@@ -36,6 +36,7 @@ class Issues extends Component {
     issues: [],
     filter: '',
     loading: true,
+    refreshing: false,
   };
 
   componentDidMount = async () => {
@@ -102,6 +103,8 @@ class Issues extends Component {
       keyExtractor={item => String(item.id)}
       renderItem={this.renderListItem}
       numColumns={1}
+      refreshing={this.state.refreshing}
+      onRefresh={this.getIssues}
     />
   )
 
