@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
 
@@ -15,6 +16,7 @@ const IssueItem = ({ issue }) => (
       <Text style={styles.title}>{trunc(issue.title)}</Text>
       <Text style={styles.subTitle}>{issue.user.login}</Text>
     </View>
+    <Icon name="angle-right" size={20} style={styles.icon} />
   </View>
 );
 
