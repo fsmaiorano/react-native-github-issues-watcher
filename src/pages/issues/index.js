@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, AsyncStorage } from 'react-native';
+import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, AsyncStorage, Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import api from 'services/api';
 import styles from './styles';
@@ -63,6 +63,11 @@ class Issues extends Component {
     } else {
       this.setState({ filter: 'open' });
     }
+  }
+
+  redirectToPage = (item) => {
+    console.tron.log(item);
+    Linking.openURL(item.html_url);
   }
 
   renderListItem = ({ item }) => (
